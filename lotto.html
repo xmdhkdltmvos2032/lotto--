@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="lotto">로또번호 추첨기</button>
+
+    <p class="lottofield" style="font-size: 30px; position: relative; right: 30px;"></p>
+    <style>
+        body{
+            margin-left: 700px;
+        }
+    </style>
+</body>
+<script>
+    const lotto=document.querySelector(".lotto")
+    const lottofield=document.querySelector(".lottofield")
+
+    function 로또(){
+        let lotto = [];
+        while (lotto.length < 6) {
+            let 숫자 = parseInt(Math.random() * 45) + 1;
+            if (lotto.indexOf(숫자) < 0) {
+                lotto.push(숫자);
+                lotto.sort(function (a, b) {
+                    return a - b;
+                })
+            }
+        }
+        lottofield.textContent=lotto;
+        lottofield.style.color="black";
+    }
+    lotto.addEventListener("click",로또);
+</script>
+</html>
